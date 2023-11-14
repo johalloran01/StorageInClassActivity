@@ -43,6 +43,11 @@ class MainActivity : AppCompatActivity() {
         //Get preferences
         preferences = getPreferences(MODE_PRIVATE)
 
+        //Create file reference for app specific file
+        file = File(filesDir, internalFileName)
+
+        // Read last saved value from preferences, or false if no value saved
+        autoSave = preferences.getBoolean(AUTO_SAVE_KEY, false)
 
         requestQueue = Volley.newRequestQueue(this)
 
